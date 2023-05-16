@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "377905866525",
+    "project_id": "planmate-8bfdd",
+    "storage_bucket": "planmate-8bfdd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:377905866525:android:84dc0dbc6b907265d6a3f4",
+        "android_client_info": {
+          "package_name": "com.example.planmate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "377905866525-rr36o1h7uul4qc4ltfve3clt9g8g6vcc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALOuv-IDoNDHMiBqCl7gdjwhTPi0RHY6E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "377905866525-rr36o1h7uul4qc4ltfve3clt9g8g6vcc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

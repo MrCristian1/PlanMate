@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CrearTareaActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white"
+                app:srcCompat="@android:drawable/ic_menu_set_as" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_color"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/et_titulo_tarea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="60dp"
+                android:background="@drawable/shape_button"
+                android:backgroundTint="@color/green"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="@string/tarea_t_tulo"
+                android:inputType="textPersonName"
+                android:padding="20dp"
+                android:textColor="@color/darkpurple"
+                android:textColorHint="@color/darkpurple"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_detalles"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="60dp"
+                android:background="@drawable/shape_button"
+                android:backgroundTint="@color/white"
+                android:gravity="center|top"
+                android:hint="@string/detalles"
+                android:padding="20dp"
+                android:textColor="@color/darkpurple"
+                android:textColorHint="@color/gray"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/etCategoria"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="DIFICULTAD MATERIA"
+                    android:textStyle="bold"
+                    android:textColorHint="@color/gray"
+                    android:background="@drawable/shape_button"
+                    android:layout_marginLeft="60dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="60dp"
+                    android:padding="10dp"
+                    android:textColor="@color/darkpurple"
+                    android:gravity="center"
+                    android:focusable="false"
+                    android:clickable="true" />
+
+                <Spinner
+                    android:id="@+id/spinnerCategoria"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="60dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="60dp"
+                    android:background="@drawable/shape_button"
+                    android:gravity="center"
+                    android:entries="@array/categorias"
+                    android:padding="10dp"
+                    android:textColor="@color/darkpurple"
+                    android:textColorHint="@color/gray"
+                    android:textSize="20sp"
+                    android:visibility="gone"
+                    android:spinnerMode="dropdown"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
+
+            <EditText
+                android:id="@+id/et_nombre_profesor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="60dp"
+                android:background="@drawable/shape_button"
+                android:backgroundTint="@color/white"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="@string/nombre_profesor"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:textColor="@color/darkpurple"
+                android:textColorHint="@color/gray"
+                android:textStyle="bold" />
+
+
+            <EditText
+                android:id="@+id/et_fecha_entrega"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="60dp"
+                android:background="@drawable/shape_button"
+                android:backgroundTint="@color/white"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="@string/fecha_entrega"
+                android:inputType="date"
+                android:padding="10dp"
+                android:textColor="@color/darkpurple"
+                android:textColorHint="@color/gray"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <EditText
+                    android:id="@+id/etMateria"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="SELECCIONE LA MATERIA"
+                    android:textStyle="bold"
+                    android:textColorHint="@color/gray"
+                    android:background="@drawable/shape_button"
+                    android:layout_marginLeft="60dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="60dp"
+                    android:padding="10dp"
+                    android:textColor="@color/darkpurple"
+                    android:gravity="center"
+                    android:focusable="false"
+                    android:clickable="true" />
+
+
+                <Spinner
+                    android:id="@+id/spinnerMateria"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="60dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="60dp"
+                    android:background="@drawable/shape_button"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:textColor="@color/darkpurple"
+                    android:textColorHint="@color/gray"
+                    android:textSize="20sp"
+                    android:visibility="gone"
+                    android:spinnerMode="dropdown"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnGuardarTarea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="80dp"
+                android:backgroundTint="@color/darkpurple"
+                android:onClick="clickGuardarTarea"
+                android:padding="15dp"
+                android:text="@string/guardar_tarea"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:cornerRadius="20dp" />
+
+            <ImageButton
+                android:id="@+id/imageButton3"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="350dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/shape_button"
+                android:backgroundTint="@color/pastelpurple"
+                android:onClick="AtrasCrearTarea"
+                app:cornerRadius="20dp"
+                app:srcCompat="@android:drawable/ic_menu_revert" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
