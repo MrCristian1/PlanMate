@@ -16,16 +16,7 @@
             android:name=".RegistrarActivity"
             android:exported="false" />
         <activity
-            android:name=".ComentariosDetallesActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MateriaDetallesActivity"
-            android:exported="false" />
-        <activity
             android:name=".AsignarMateriaActivity"
-            android:exported="false" />
-        <activity
-            android:name=".prueba"
             android:exported="false" />
         <activity
             android:name=".DetallesTareaActivity"
