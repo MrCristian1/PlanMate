@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                 Intent intent =new Intent(MainActivity.this, DetallesTareaActivity.class);
-                intent.putExtra("tarea",tareaSeleccionada);
+                intent.putExtra("tarea",tarea);
                 startActivity(intent);
             }
 

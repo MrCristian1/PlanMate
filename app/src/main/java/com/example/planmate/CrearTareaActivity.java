@@ -28,7 +28,7 @@ import java.util.List;
 
 public class CrearTareaActivity extends AppCompatActivity {
 
-    private EditText etTareaTitulo, etTareaDetalles, etNombreProfesor, etFechaEntrega, etCategoria, etMateria;
+    private EditText etTareaTitulo, etTareaDetalles, etFechaEntrega, etMateria, etNombreProfesor,  etCategoria;
     private Spinner spinnerCategoria, spinnerMateria;
     private Button btnGuardarTarea;
     private List<String> materias;
@@ -185,9 +185,9 @@ public class CrearTareaActivity extends AppCompatActivity {
         String titulo = etTareaTitulo.getText().toString();
         //String dificultad = etCategoria.getText().toString();
         String detallesTarea = etTareaDetalles.getText().toString();
+        String dificultad = spinnerCategoria.getSelectedItem().toString();
         String nombreProfesor = etNombreProfesor.getText().toString();
         String fechaEntrega = etFechaEntrega.getText().toString();
-        String dificultad = spinnerCategoria.getSelectedItem().toString();
         String materia = spinnerMateria.getSelectedItem().toString();
 
         Intent intent = getIntent();
@@ -198,8 +198,8 @@ public class CrearTareaActivity extends AppCompatActivity {
             // Actualizar la tarea existente en Firebase Firestore
             //String tareaId = getIntent().getStringExtra("tareaId");
             firestore.collection("tareas").document(tareaId)
-                    .update("titulo", titulo, "detalles", detallesTarea, "profesor", nombreProfesor,
-                            "fechaEntrega", fechaEntrega, "categoria", dificultad, "materia", materia)
+                    .update("titulo", titulo, "detalles", detallesTarea,
+                             "categoria", dificultad,  "profesor", nombreProfesor, "fechaEntrega", fechaEntrega, "materia", materia)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
@@ -216,7 +216,7 @@ public class CrearTareaActivity extends AppCompatActivity {
         } else {
             // Crear una nueva tarea en Firebase Firestore
             firestore.collection("tareas")
-                    .add(new Tarea(titulo, detallesTarea, dificultad, nombreProfesor, fechaEntrega, materia))
+                    .add(new Tarea(titulo, detallesTarea, dificultad, materia, nombreProfesor, fechaEntrega ))
                     .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                         @Override
                         public void onSuccess(DocumentReference documentReference) {

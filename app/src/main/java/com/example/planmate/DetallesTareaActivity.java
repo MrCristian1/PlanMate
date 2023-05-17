@@ -95,6 +95,14 @@ public class DetallesTareaActivity extends AppCompatActivity {
 
 
 
+        Button btnTerminarTarea = findViewById(R.id.btn_terminar);
+        btnTerminarTarea.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                eliminarTarea();
+            }
+        });
+
         Button editarTareaButton = findViewById(R.id.btnActualizarTarea);
         editarTareaButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,9 +116,10 @@ public class DetallesTareaActivity extends AppCompatActivity {
                 TextView titulo = obtenerTituloTarea(); // Método para obtener el título de la tarea actual
                 TextView detalles = obtenerDetallesTarea(); // Método para obtener los detalles de la tarea actual
                 TextView profesor = obtenerProfesorTarea(); // Método para obtener el nombre del profesor de la tarea actual
-                TextView fechaEntrega = obtenerFechaEntregaTarea(); // Método para obtener la fecha de entrega de la tarea actual
                 TextView categoria = obtenerCategoriaTarea(); // Método para obtener la categoría de la tarea actual
                 TextView materia = obtenerMateriaTarea(); // Método para obtener la materia de la tarea actual
+                TextView fechaEntrega = obtenerFechaEntregaTarea(); // Método para obtener la fecha de entrega de la tarea actual
+
 
                 Intent intent = new Intent(DetallesTareaActivity.this, CrearTareaActivity.class);
                 intent.putExtra("tareaId", tareaId); // Pasa el ID de la tarea a la actividad CrearTareaActivity
@@ -125,15 +134,18 @@ public class DetallesTareaActivity extends AppCompatActivity {
                 editarTareaIntent.putExtra("titulo", titulo.getText().toString());
                 editarTareaIntent.putExtra("detalles", detalles.getText().toString());
                 editarTareaIntent.putExtra("profesor", profesor.getText().toString());
-                editarTareaIntent.putExtra("fechaEntrega", fechaEntrega.getText().toString());
                 editarTareaIntent.putExtra("categoria", categoria.getText().toString());
                 editarTareaIntent.putExtra("materia", materia.getText().toString());
+                editarTareaIntent.putExtra("fechaEntrega", fechaEntrega.getText().toString());
+
 
                 // Iniciar la actividad CrearTareaActivity
                 startActivity(editarTareaIntent);
             }
         });
     }
+
+
 
 
     private TextView obtenerTituloTarea() {
@@ -174,6 +186,38 @@ public class DetallesTareaActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
+    private void eliminarTarea() {
+        String tareaTitulo = etTareaTitulo.getText().toString();
+        // Opcional: Si el título no es único, también puedes utilizar otros campos para identificar la tarea
+
+        // Realizar una consulta en la colección "tareas" para buscar la tarea por su título
+        firestore.collection("tareas")
+                .whereEqualTo("titulo", tareaTitulo)
+                .get()
+                .addOnSuccessListener(queryDocumentSnapshots -> {
+                    if (!queryDocumentSnapshots.isEmpty()) {
+                        // Obtener la referencia del documento de la tarea encontrada
+                        DocumentReference tareaRef = queryDocumentSnapshots.getDocuments().get(0).getReference();
+
+                        // Eliminar la tarea
+                        tareaRef.delete()
+                                .addOnSuccessListener(aVoid -> {
+                                    Toast.makeText(DetallesTareaActivity.this, "Tarea eliminada", Toast.LENGTH_SHORT).show();
+                                    finish();
+                                })
+                                .addOnFailureListener(e -> {
+                                    Toast.makeText(DetallesTareaActivity.this, "Error al eliminar la tarea", Toast.LENGTH_SHORT).show();
+                                });
+                    } else {
+                        Toast.makeText(DetallesTareaActivity.this, "La tarea no existe en la base de datos", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(DetallesTareaActivity.this, "Error al buscar la tarea", Toast.LENGTH_SHORT).show();
+                });
+    }
+
 
 
 }
