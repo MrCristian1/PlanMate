@@ -51,7 +51,7 @@
             <TextView
                 android:id="@+id/tv_detalles_tarea"
                 android:layout_width="match_parent"
-                android:layout_height="220dp"
+                android:layout_height="161dp"
                 android:layout_marginLeft="60dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="60dp"
@@ -62,22 +62,6 @@
                 android:text="@string/detalles"
                 android:textColor="@color/gray"
                 android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tv_categoria"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="60dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="60dp"
-                android:background="@drawable/shape_button"
-                android:backgroundTint="@color/green"
-                android:gravity="center"
-                android:padding="10dp"
-                android:text="@string/nombre_profesor"
-                android:textColor="@color/darkpurple"
-                android:textSize="15sp"
                 android:textStyle="bold" />
 
 
@@ -97,18 +81,18 @@
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
-            <Button
-                android:id="@+id/tv_materia"
+            <TextView
+                android:id="@+id/tv_categoria"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="60dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginRight="60dp"
                 android:background="@drawable/shape_button"
                 android:backgroundTint="@color/green"
                 android:gravity="center"
-                android:onClick="MateriaEmergente"
-                android:text="MATERIA"
+                android:padding="10dp"
+                android:text="@string/nombre_profesor"
                 android:textColor="@color/darkpurple"
                 android:textSize="15sp"
                 android:textStyle="bold" />
@@ -130,6 +114,22 @@
                 android:textStyle="bold" />
 
             <Button
+                android:id="@+id/tv_materia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="60dp"
+                android:background="@drawable/shape_button"
+                android:backgroundTint="@color/green"
+                android:gravity="center"
+                android:onClick="MateriaEmergente"
+                android:text="MATERIA"
+                android:textColor="@color/darkpurple"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <Button
                 android:id="@+id/btnActualizarTarea"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -145,6 +145,15 @@
                 android:textStyle="bold"
                 app:cornerRadius="20dp" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+
+            </LinearLayout>
+
             <Button
                 android:id="@+id/btn_terminar"
                 android:layout_width="match_parent"
@@ -158,6 +167,19 @@
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:cornerRadius="20dp" />
+
+            <ImageButton
+                android:id="@+id/imageButton2"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="350dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/shape_button"
+                android:backgroundTint="@color/pastelpurple"
+                android:onClick="AtrasDetallesTarea"
+                app:cornerRadius="20dp"
+                app:srcCompat="@android:drawable/ic_menu_revert" />
 
 
         </LinearLayout>

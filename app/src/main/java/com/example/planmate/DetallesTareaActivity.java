@@ -218,6 +218,11 @@ public class DetallesTareaActivity extends AppCompatActivity {
                 });
     }
 
+    public void AtrasDetallesTarea(View view) {
+        Intent atrasDetalles = new Intent(this, MainActivity.class);
+        startActivity(atrasDetalles);
+    }
+
 
 
 }

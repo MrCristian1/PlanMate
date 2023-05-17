@@ -114,4 +114,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
+    public void AtrasMain(View view) {
+        Intent atrasMain = new Intent(this, MenuActivty.class);
+        startActivity(atrasMain);
+    }
 }
