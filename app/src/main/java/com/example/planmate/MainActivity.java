@@ -62,17 +62,6 @@ public class MainActivity extends AppCompatActivity {
         rvListadoTareas.setAdapter(miAdaptador);
         rvListadoTareas.setLayoutManager(new LinearLayoutManager(this));
 
-    //    btnTarea.setOnClickListener(new View.OnClickListener() {
-    //        @Override
-    //        public void onClick(View v) {
-    //            Intent intent = new Intent(MainActivity.this, DetallesTareaActivity.class);
-    //            startActivity(intent);
-        //       }
-        //   });
-
-        // Agregar el diseño de lista_tareas al LinearLayout principal de MainActivity
-        //  LinearLayout linearLayout = findViewById(R.id.activity_main.xml); // Reemplaza "layout_principal" con el ID correcto de tu LinearLayout principal
-        //  linearLayout.addView(listaTareasView);
     }
 
     @Override

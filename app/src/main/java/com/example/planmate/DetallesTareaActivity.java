@@ -35,7 +35,6 @@ public class DetallesTareaActivity extends AppCompatActivity {
     private FirebaseFirestore firestore;
 
 
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,17 +50,6 @@ public class DetallesTareaActivity extends AppCompatActivity {
         etFechaEntrega = findViewById(R.id.tv_fecha);
         etCategoria = findViewById(R.id.tv_categoria);
         etMateria = findViewById(R.id.tv_materia);
-        spinnerCategoria = findViewById(R.id.spinnerCategoria);
-        spinnerMateria = findViewById(R.id.spinnerMateria);
-        //btnActualizarTarea = findViewById(R.id.btnActualizarTarea);
-
-        //Tarea miTareaAtrapado = (Tarea) getIntent().getSerializableExtra("tarea");
-
-        //tvTituloTarea.setText(miTareaAtrapado.getTitulo());
-        //tvDetallesTarea.setText(miTareaAtrapado.getDetalles_tarea());
-        //tvCategoria.setText(miTareaAtrapado.getCategoria());
-
-
 
 
         Intent intent = getIntent();
@@ -189,18 +177,18 @@ public class DetallesTareaActivity extends AppCompatActivity {
 
     private void eliminarTarea() {
         String tareaTitulo = etTareaTitulo.getText().toString();
-        // Opcional: Si el título no es único, también puedes utilizar otros campos para identificar la tarea
 
-        // Realizar una consulta en la colección "tareas" para buscar la tarea por su título
+
+        // se realiza una consulta en la colección "tareas" para buscar la tarea por su título
         firestore.collection("tareas")
                 .whereEqualTo("titulo", tareaTitulo)
                 .get()
                 .addOnSuccessListener(queryDocumentSnapshots -> {
                     if (!queryDocumentSnapshots.isEmpty()) {
-                        // Obtener la referencia del documento de la tarea encontrada
+                        // se obtiene la referencia del documento de la tarea encontrada
                         DocumentReference tareaRef = queryDocumentSnapshots.getDocuments().get(0).getReference();
 
-                        // Eliminar la tarea
+                        // se elimina la tarea
                         tareaRef.delete()
                                 .addOnSuccessListener(aVoid -> {
                                     Toast.makeText(DetallesTareaActivity.this, "Tarea eliminada", Toast.LENGTH_SHORT).show();
